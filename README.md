@@ -1,3 +1,3 @@
 # Javapractice
 
-Compilation of my java coding assignments
+Compilation of my java coding revisions
