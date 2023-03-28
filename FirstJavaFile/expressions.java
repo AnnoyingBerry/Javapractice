@@ -47,5 +47,26 @@ public class expressions {
 		//psvm short form for public static void main method
 
 	}
+
+	//method overloading
+	- it works when the method name is the same, but the parameters are differernt
+	- it has its own unique method signature
+	- it can not set default parameter values unlike other languages
+	- return type, and parameter variable name difference, does not make it unique]
+
+	calculateScore(int a){
+
+		// an example on how to set default parameter value using method overloading
+		- by calling another same method with different parameters
+
+		return calculatescore("someone",30);
+	}
+	calculateScore(String a , int b){
+
+	}
+	calculateScore(){
+
+
+	}
  
 */
