@@ -1,4 +1,4 @@
-package Javapractice.FirstJavaFile;
+package Javapractice.JavaMethodChallenge;
 /*
 
 	Write a method named hasSharedDigit with two parameters of type int. 

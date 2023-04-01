@@ -283,6 +283,25 @@ public class controlFlowstatements {
 
 		- only initilize variables when necessary in the narrowest code block
 		- 
+
+
+
+		// static vs instance
+
+		'static' field 
+			- means that  it is stored in a special location in the memory that doesnt change 
+			- access "ClassName.fieldname" e.g Integer.MAX_VALUE -> instance variable that store the value of max int
+			- access "ClassName.methodname"
+		'instance/object' field (means without static )
+
+		- e.g. ( to create an object)
+			String s = new String("hello") // this is to initialise an object, or u can say
+											// and instance of an object
+		- it is not stored in the memory until an object is being created  
+		- access by 'objectvariable.fieldname'
+		- 'objectvariable.methodname'
+			 
+
 	*/
 	
 
