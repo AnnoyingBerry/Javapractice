@@ -1,4 +1,4 @@
-package Javapractice.OOP;
+package Javapractice.OOP.Inheritance;
 
 public class Car {
 
@@ -80,6 +80,8 @@ public class Car {
 	public void setConvertible(boolean convertible) {
 		this.convertible = convertible;
 	}
+
+	
 
 	
 }

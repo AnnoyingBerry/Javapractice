@@ -1,5 +1,4 @@
-package Javapractice.OOP;
-import Javapractice.OOP.Customers;
+package Javapractice.OOP.Inheritance;
 
 /*
 	*null reference - variable/attribute has a type but no object reference

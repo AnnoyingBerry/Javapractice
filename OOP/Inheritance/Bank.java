@@ -1,4 +1,4 @@
-package Javapractice.OOP;
+package Javapractice.OOP.Inheritance;
 
 public class Bank {
 
