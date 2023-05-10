@@ -1,0 +1,54 @@
+**** Array,ArrayList,LinkList,Big O notation memory allocation
+	*** Big O, Big O notation
+		** Big O
+			- it approximates the cost of an operation 
+				for a certain number of elements, called n.
+			- Cost - is determined by the time it takes,
+				but it can include memory usage and complexity
+
+		** n(no.of elements)
+			- as 'n' gets bigger, an operaton cost can stay the same
+			- Cost can grow linearly, increases as the number of element increases
+			- cost can grow exponentially, or some other non-linear fashion
+
+		** Perfect cost - O(1) 
+			- called constant time
+			- operational time and complexity will never cahnge, ideal world
+
+		** O(n) - worst case scenario
+			- operational cost is in direct correlation to the number of elements
+			- called linear time
+
+		** Constant Amortized time cost O(1)* ( growth of ArrayList)
+			- Majority of the cases of is close to O(1)
+			- but certain intervals it costs O(n)
+			- it happens when we add new elements to the array when it is maxed out.
+			- it must force to reallocate, by creating a new array and insert the elements in 
+			- it will be back to O(1) until it is maxed again
+	*** Array of Primitive values
+		** example
+			| index | Value | Address|
+			|	0	|	30	| 	100	 |
+			|	1	|	40	|	104	 |
+		
+		- every index on an array has an address
+		- if 100 is the address of the integer
+		- we know that the next integer will store at 104
+		- because one byte is 8 bits, int is 32 bits = 4 bytes
+		- therefore the next index will be store in the address + 4 bytes
+
+	*** Array and arrayList for reference type
+		- e.g string or any object classes
+		- it stores the address of the values in the array
+		* To remove:
+			- the addresses has to be re-indexed,or shifted, to remove an empty space
+			- expensive process
+		* To add:
+			- it might need to be reallocated if its too small
+			- create a new array with bigger capacity and reallocate the memory
+			- expesive process
+
+
+
+
+		

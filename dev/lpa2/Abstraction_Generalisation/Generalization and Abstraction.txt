@@ -1,0 +1,60 @@
+**** Generalization
+	- At the top of the hierarchy 
+	- The base class is the most general class E.g Money,Animals,Food
+		everything can be said to have in common
+	- Generalize A set of characteristics and behavior
+
+	*** Specific class 
+		- usually at the bottom of the hierarchy
+		- very particular and state the specific details
+		- e.g. Euro, Rupees,US dollars
+
+	*** Abstraction
+		** Concept
+			- if you can't draw it on a piece of paper,it is probably Abstract
+				- E.g. Animals ( not specific enough to draw Animals)
+				- Animals does not exists, but it is there to describe 
+					a set of more specific things
+
+			- It simplifies the view of a set of items' traits and behavior
+				so we can talk about them as a group, and generalize their functionality
+
+		** Java 
+			- allows us to create a class hierarchy
+			- usually the base class(top of the hierarchy), is a abstract concept
+			- a way to create interfaces
+
+		** Abstract method
+			- Has a method signature, return type but no method body
+			- it is unimplemented
+			- used to describe behavior, which obejct of that type will always have
+				- e.g. Animals Move or Eat, Move and eat can be an abstract method
+			
+		** Concrete method
+			- Has a method Body with at least one statement
+			- Implement an abstract method, if it overrides one.
+			- Abstract classes and interfaces, can have mix of abstract and concrete methods
+		
+		** Method Modifiers
+			- basic Modifiers: 
+				- Private,public,protected,package
+			- Other Modifiers: 
+				* abstract 
+				* static 
+					- Sometimes called a class method, because it called directly on the class interface
+				* final
+					- method thta cannot be overridden by subclasses
+				* default
+					- only applicatble to an interface
+				* native 
+					- Method with no body, but different from abstract modifier
+					- Method body will be implemented in platform-dependent code
+					- usually in another programming language like 'C'
+					- not commonly use
+				* synchronized
+					- Manages how multiple threads will access the code in this method
+					- multi-threaded code section
+				
+
+			
+			
