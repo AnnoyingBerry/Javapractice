@@ -10,11 +10,64 @@
 
 	
 	***Interface vs Abstract Classes
+
 		- An interface is similar to an abstract class, but it is not
 		- A special type, like a contract between the class and client code
 		- Must implement all the abstract methods
 		- Allows classes that might have little 
 			in common to be recognized as a special reference type
+
+
+		** Abstract Class
+			* inherit from Java.lang.object
+			* Has a Constrcutor
+			* Cannot be instantiate/object cannot be created
+			* May contain a mix of method declaration, with or without method block
+				- method has a method block(concrete method)
+			* Can declare fields that are not static and final, meaning, instance fields
+			* Can use any 4 access modifiers for its concrete methods
+			* Can use all except private access modifier, for its abstract method
+			* abstract class can extend only one parent class, but implement multiple interfaces
+			* when an abstract class has subclasses(child), the child usually provides implementations
+				for all its methods in its parent class
+			* if it doesn't, the subclass must also declared abstract
+
+			* When to use abstract class?
+				- sharing code among several closely related classes(E.g. Animal)
+				- you expect classes to have many ocmmon methods/fields/require access modifiers other than public
+				- non static or non final fields
+				- requirement for base class, to provide default implementation of some methods	
+					while other methods should be open to be overriden by child classes
+				
+
+		** Interface
+			* Declaration of methods, which you want only some classes to have, 
+				its not the implementation
+			* Do not have a Constrcutor
+			* Cannot be instantiate/object cannot be created
+			* May contain a mix of method declaration, with or without method block
+				- method has a method block(concrete method)
+			* define what kind of operation an object can perform
+			* Forms a contract between classes and outside world,and it is enforce at build KM_TO_MILES
+			* All methods decalred without a method body, are automatically public and abstract
+			* Can extends another interface or multiple interfaces
+			* Flexible, are not part of the class hierarchy
+			* Coding to an interface, is the best practice
+			* default methods are used mostly for backwards compatibility JDK8
+			* JDK 9 can contain private methods, commonly used when default method share common code
+			* Does not inherit from Java.lang.object
+
+			* when to use interface?
+				- unrelated classes will implement the interface
+					E.g. Java own interfaces, Comparable and Clonable
+				- specify the behaviour of a particular data type, but not concerned
+					about who implements its behaviour
+				- want to seperate different behavior
+			
+
+
+			
+
 
 	*** Default method
 		- backwards compatible way to do things
