@@ -1,0 +1,125 @@
+****Interface
+	- Abstract reference types - refers to coding to an interface
+		- means the code uses more generalized type, and not specific types
+	- can be use in code as variable types, method parameters, return types,list types
+		e.g. Trackable track = new Bird(); // this is variabble type
+				ArrayList<Trackable> track = new Arraylist();// this is list type
+	- this technique is prefered because of its instances 
+		processes uniformly in runtime
+	- using interface types as reference is considered best practice
+
+	
+	***Interface vs Abstract Classes
+		- An interface is similar to an abstract class, but it is not
+		- A special type, like a contract between the class and client code
+		- Must implement all the abstract methods
+		- Allows classes that might have little 
+			in common to be recognized as a special reference type
+
+	*** Default method
+		- backwards compatible way to do things
+
+		default void transistion(){
+			// add code here
+			return null; (if needed)
+		}
+
+		** overriding the method
+			* You can choose not to override at all
+			* You can override the method so that the interface will not be excecuted
+			* Override the method + the default method in the interface
+
+	*** Static methods in an interfaces
+
+		static void log(String description){
+			// insert code here
+		}
+
+		** Do not need to specify a public access moditifer, it is implied
+		** Calling a public static method, must use interface name as qalifier
+			- InterfaceName.MethodName();
+			- e.g. Comparator.natualOrder();
+
+		** JDK 9 gives private static and non static methods
+			- Addresses the problem of re-use of code within concrete methods
+			- Private static method can only be accessable by
+				- public static method
+				- default method
+				- private non static method
+					- used to support defaukt nmethod and other private method
+	*** Syntax/Declaration
+
+		public interface FlightEnabled{}
+
+		--------
+		** using in a class
+
+			public class Bird implements FlightEnabled{}
+
+			- keyword: implements
+
+		** instalizing
+			 
+			 // assign it to FlightEnabled interface variable, containing bird object
+			 FlightEnabled flier = new Bird();
+
+		** inheritance + interface
+
+			// inherits from Animals but implementing FlightEnabled and Trackable interface
+			public class Bird extends Animal implements FlightEnabled,Trackable{
+
+			}
+
+		** interface can be extended with multiple interfaces
+
+			interface OrbitEarth extends FlightEnabled, trackable{}
+		
+		** invalids
+
+			interface OrbitEarth implements FlightEnabled{} // invalid will not complile
+
+		** Naming convention
+			- usually ends like 'able'
+			- e.g. Comparable and iterable
+			- usualy means something is capabale of doing, a given set of behaviors
+
+		** abstract modifier is implied on an interface
+			- abstract is implicity declared
+			- dont have to declare any method abstract
+			- any method without body, is implicitly declared public and abstract
+			"abstract" interface FlightEnabled{ // abstract modifier here is not needed,redundant}
+	
+	*** Interface methods Access modifiers
+
+		** Class vs Interface
+			- Classes without an access modifier, it is implicitly package private
+			- Interface members without access modifier, it is implicity public
+
+			* Protected modifier, on an interface, is a complier error
+			* only concrete method can have private access
+	
+**** Final modifier
+	- prevents any futher modifications to that component
+	- Final method cannot be overriden by a subclass
+	- final field means an object field 
+		cannot be given a different value/reassinges after initialization
+	- final static field is a class field that 
+		cannot be given a different value/reassigned
+	- final class cannot be overriden, no class can use it, in the extends clause
+	- final variable means once assigned, any code in the block cannot change it.
+	
+**** constant
+	- is a variable that cannot be changed
+	- final variable of primitive type/String, initialized with a constant expression
+
+	* Naming convention
+	 	- usually uppercase letters with underscores between words
+
+
+
+
+		
+
+
+	
+		
