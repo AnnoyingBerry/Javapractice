@@ -1,0 +1,38 @@
+**** Generics
+
+	*** Why is Generics needed?
+		- Scenario
+
+			List list = new LinkedList();
+			list.add(new Integer(1)); 
+			Integer i = list.iterator().next(); // compiler will complain here
+
+			The compiler does not know what data type is returned or stored
+			as the list could hold any type of object.
+
+			Integer i = (Integer) list.iterator.next(); // reqiure explicit casting
+			// it could cause type related run time error if made a mistake
+		
+		- it is better if we can express/specify what we want to store and retrieved in the list
+			therefore the Diamond operator <>
+			List<Integer> list = new LinkedList<>(); 
+
+
+
+	*** <T> Generic Type Parameters
+
+	*** Bounded Generic Classes
+
+		- 'Extends' keyword here does not means that T is a subclass of player (inheritance)
+
+		- it has to be a Player or a subtype of Player
+		public class Team<T extends Player>{
+	
+		}
+
+		- when we dont specify upperbound, it is implicitly java.lang.object
+	*** Syntax
+
+		public class Team<T>{
+			private T field;
+		}
