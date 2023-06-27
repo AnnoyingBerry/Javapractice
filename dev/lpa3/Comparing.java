@@ -27,6 +27,8 @@ public class Comparing {
 				(val == 0 ? "==" : (val<0) ? "<" : ">"),s,val);
 		}
 
+		// arrays are mutable hence, fruit is being manupilated directly
+		// therefore the sort method is void
 		Arrays.sort(fruit);
 		System.out.println(Arrays.toString(fruit));
 		//chars are stored in positive integer values in memory
@@ -48,6 +50,10 @@ public class Comparing {
 		System.out.println("results = " + tim.compareTo(new Student("TIM")));
 
 		Comparator<Student> gpaSorter = new StudentGPAComparator();
+
+		// this sort function will call the comparator<Student> class method internally
+		// when sorting the students array
+		// https://stackoverflow.com/questions/31587301/how-does-the-sort-method-of-the-collection-class-call-the-comparables-compare
 		Arrays.sort(students, gpaSorter.reversed());
 		System.out.println(Arrays.toString(students));
 		

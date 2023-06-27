@@ -151,23 +151,7 @@
 			* Protected modifier, on an interface, is a complier error
 			* only concrete method can have private access
 	
-	*** Comparable Interface
 
-		** Syntax - it is a generic type
-			// we use comparable when there is a natural order of things
-			// natrual order means A-Z, 0-9,Small to Big
-			public interface Comparable<T> {
-				int compareTo(T o);
-				
-				// returns int
-				// if '0' it means that '0 == this' is true
-				// if 'any negative value'  means 'this < o' is true
-				// if 'any positive value' means 'this > o' is true
-			}
-
-			- Classes that implements this interface needs to implement the 
-				compareTo method
-			
 
 **** Final modifier
 	- prevents any futher modifications to that component

@@ -17,9 +17,202 @@
 			therefore the Diamond operator <>
 			List<Integer> list = new LinkedList<>(); 
 
+	*** Sorting objects
+		- Java provides Two ways to sort objects using the data members of the class
+			1. Comparable
+			2. Comparator
+		
+		** Comparable Interface (commonly used in generics classes) 
+			- java.lang.Comparable
+			- A comparable object is capable of comparing itself with another object.
+				
+
+			* Syntax - it is a generic type
+				// we use comparable when there is a natural order of things
+				// natrual order means A-Z, 0-9,Small to Big
+				public interface Comparable<T> {
+					int compareTo(T o);
+					
+					// returns int
+					// if '0' it means that '0 == this' is true
+					// if 'any negative value'  means 'this < o' is true
+					// if 'any positive value' means 'this > o' is true
+				}
+
+				- Classes that implements this interface needs to implement the 
+					compareTo method
+			
+			* Arrays.Sort() or Collections.sort()
+
+				- when you pass in an Array, Array.sort(arrayTobeSorted);
+				- Collection.sort() will call Arrays.sort method
+				- with polymorphism, it would use the overloaded method with object[] parameter
+				- Arrays.sort method will call CompareTo() internally when sorting as a comparison rule to sort the list of objects
+				- the sort method is void since arrays are mutable, it will modify the array values directly.
+
+			* Use Comparable when there is a single, default comparison for your object. 
+	
+		** Comparator Interface (commonly used in generics classes)
+			- A comparator interface is used to order the objects of user-defined classes. 
+				A comparator object is capable of comparing two objects of the same class
+			
+			- this is an additional interface to use if the developer does not want to keep on overriding compareTo() every single object
+				bad case example:
+
+					public class BadExampleOfComparable {
+
+						public static void main(String... args) {
+							List<SimpsonCharacter> characters = new ArrayList<>();
+
+							SimpsonCharacter homer = new SimpsonCharacter("Homer") {
+								@Override
+								public int compareTo(SimpsonCharacter simpson) {
+									return this.name.length() - (simpson.name.length());
+								}
+							};
+
+							SimpsonCharacter moe = new SimpsonCharacter("Moe") {
+								@Override
+								public int compareTo(SimpsonCharacter simpson) {
+									return this.name.length() - (simpson.name.length());
+								}
+							};
+
+							characters.add(homer);
+							characters.add(moe);
+
+							Collections.sort(characters);
+
+							System.out.println(characters);
+						}
+
+					}
 
 
-	*** <T> Generic Type Parameters
+			* Syntax -
+
+				public int compare(Object obj1, Object obj2){
+
+				}
+
+			* Arrays.Sort() or Collections.sort()
+
+				- when you pass in an Array, Array.sort(arrayTobeSorted);
+				- Collection.sort() will call Arrays.sort method
+				- with polymorphism, it would use the overloaded method with object[] parameter
+				- Arrays.sort method will call Compare() internally when sorting as a comparison rule to sort the list of objects
+				- the sort method is void since arrays are mutable, it will modify the array values directly.
+			
+			*use Comparator when you need to work around an existing compareTo(), or when you need to use specific logic in a more flexible way. 
+				Comparator detaches the sorting logic from your object and contains the compareTo() logic within your sort() method.
+			
+	*** <T> Genertic Type Classes
+		** Syntax 
+			- public class GenericClass <T>{}
+		
+		** Using Multiple types to declare an upperbound
+			Syntax: 
+			public class GenericClass <T extends AbstractClassA & interfaceA & InterfaceB>{}
+
+			- you can use multiple types to set a restrictive upperbound  in a class
+			- you can only extend one class at most but zero to many interfaces
+			- you must extends the class before interface
+	*** <T> Generic Type Methods
+
+		** Terminology 
+			* Type parameter 
+				- is a generic class, or generic method's declaration of the type
+				- "T" is said to be the type parameter
+				- "T extends" can be used to specify an upperbound 
+			* Type argument
+				- declares the type to be used, and is specified in a type reference,
+					such as a local variable reference,method parameter or field declaration
+				- Team<BaseballPlayer> team = new Team<>();
+				- "BaseballPlayer" here is the type argument for the Team class
+			* wildcard
+				- Note: A collection of Object is not the supertype of any collection
+					For exameple, a List<Object> is not the supertype of List<String>, 
+					and assigning a variable of type List<Object> to a variable of type List<String> 
+					will cause a compiler error.
+					prevent possible conflicts that can happen if we add 
+					heterogeneous types to the same collection.
+
+					Scenario: 
+						public static void paintAllBuildings(List<Building> buildings) {}
+
+						if house was a subtype of Building, we cannot use this method,
+						the compiler will cause an error.
+
+						// this will work
+						Public static void paintAllBuildings(List<? extends Building> buildings) {}
+						
+						this will accecpt an unknwon type that limits to Building and its subtypes
+
+				- can only be used in a type argument, not in the type parameter declaration
+				- "?" is called the wildcard
+					- means the type is unknown
+					- limits what i can do
+
+				- 3 types of usuage
+					- Note: you cannot specify both upper and 
+						lower bound, in the same declaraton
+					- Boounded means "Restricted"
+					- Unbounded:
+						List<?> unknownList;
+						- any list of any type can be passed or assigned to
+					- upperbounded	
+						List<? extends Student> unknownList;
+						- A list containing any type that is a Student or A
+							subtype of Student can be assigned or passed to
+							an argument specifying this wildcard
+					-Lower Bounded
+						List<? super LPAStudent> unknownList;		
+						- A list contiaining any type that is an LPAStudent
+							or a super type of LPAStudent,in this case,
+							Student and Object		
+			
+
+					- Invalids:
+						- cannot be used in an instantiation of a generic class
+						- var myList = new ArrayList<?>();
+
+				
+		** Syntax
+			// the usual declaration
+			public <T> String myMethod(T input){}
+
+			// generic method with upperbound
+			public <T extends Student> String myMethod(List<T> input){}
+
+			// generic method with wildcard
+			public void myMethod(List<? extends Student> students){}
+
+			- "?" is called wildcard
+
+	*** Type Erasure
+		**  To ensure that generics won't cause overhead at runtime	
+			the compiler applies a process called type erasure on generics at compile time.
+		
+		** Example(Unbounded):
+			public <T> List<T> genericMethod(List<T> list) {}
+
+			// for illustration(runtime)
+			public List<Object> withErasure(List<Object> list) {}
+
+			// which in practice results in(runtime)
+			public List withErasure(List list) {}
+		
+		** Example (bounded):
+			// at compiletime
+			public <T extends Building> void genericMethod(T t) {}
+			
+			// at run time
+			public void genericMethod(Building t) {}
+
+
+
+		
+
 
 	*** Bounded Generic Classes
 
