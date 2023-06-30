@@ -1,0 +1,26 @@
+**** Nested Type
+**** Nested Classes
+	*** Might want to use nested classes when classes are tightly coupled
+		meaning their functionality is interwoven
+	
+	*** Static Nested Class
+		- has advantage of being able to access private attributes on outer class
+		- the outer class and access any attributes on the static nested class(inner class)
+			including private attributes
+		- you dont need getter methods
+	
+	*** Inner class
+		- non-static clase declared at member level of an enclosing class
+		- can have any of the 4 access modifiers, default is private
+		- have access to instance members, including private members of the enclosing class(outer)
+
+		Syntax to create an instance of an inner class:
+
+			EnclosingClass outerClass = new EnclosingClass();
+			EnclosingClass.InnerClass innerclass = outerClass.new InnerClass();
+
+		
+		
+
+	
+
